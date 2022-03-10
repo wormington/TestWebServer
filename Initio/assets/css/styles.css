@@ -152,7 +152,7 @@ ol {
   width: auto;
 }
 li {
-  margin: 10px 0px;
+  margin: 10px auto;
   font-size: 18px;
 }
 
@@ -495,6 +495,57 @@ img {
   color: #000000;
   background: none;
 }
+
+#school-info {
+  font-size: 18px;
+}
+
+#about-nav {
+  /* position: sticky; */
+  /* top: 30px; */
+  position: static;
+}
+
+.column-spacing {
+  padding: 0px 20px;
+  margin: 0px 20px;
+}
+
+.projects-item {
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 10px;
+  min-height: 150px;
+  padding: 0px 10px;
+  margin: 10px 0px;
+}
+
+.projects-preview-list {
+  padding: 0px;
+  margin: 0px;
+}
+
+.projects-preview {
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 10px;
+  min-height: 160px;
+  padding: 0px 10px;
+  margin: 5px 0px 5px 0px;
+}
+
+.projects-list a, .projects-preview-list a {
+  text-decoration: none;
+  /* color: #666666; */
+}
+
+.projects-item:hover, .projects-preview:hover {
+  background-color: #cccccc;
+}
+
+h2 a {
+  color: #232323
+}
 /*********************************************************************
 
 
@@ -788,7 +839,7 @@ footer.entry-meta .meta-in {
 #underfooter p {
   margin: 0;
 }
-.follow-me-icons {
+.follow-me-icons a{
   font-size: 30px;
 }
 .follow-me-icons i {
