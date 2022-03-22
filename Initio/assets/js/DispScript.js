@@ -1,3 +1,11 @@
+/**
+ *  DispScript.js
+ *  Author: Cade Wormington
+ * 
+ *  This script displays JSON from the backend to divs with the designated classes,
+ *  'projects-list' and 'projects-preview-list'. It makes use of jQuery and Bootstrap 3.
+ */
+
 // defStr is the default HTML display if an error occurs.
 const defStr = "<h3>Tell Cade to fix his code. :(</h3>";
 
@@ -90,7 +98,7 @@ $(document).ready(function () {
                 // We display, at most, 3 Github repos in the projects-preview-list.
                 if (i < 3) {
                     // Concatenate the HTML string to display each repo in projects-preview-list.
-                    prevStr += `<div class="col-md-4">
+                    prevStr += `<div class="col-md-4 col-sm-12">
                     <a href="${currentRepo.url}" target="_blank">
 					    <div class="projects-preview col-md-12">
 							<h4>/${currentRepo.name}</h4>
@@ -107,7 +115,7 @@ $(document).ready(function () {
 
                 // Concatenate the HTML string to display each repo in projects-list.
                 listStr += `<a href="${currentRepo.url}" target="_blank">
-                <div class="row projects-item">
+                <div class="row projects-item col-md-12 col-sm-12">
                     <h4>/${currentRepo.name}</h4>
                     <p>Last Commit Date: ${currentRepo.updated}
                         <br/>

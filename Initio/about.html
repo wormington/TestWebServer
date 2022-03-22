@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
+	<meta name="description" content="Cade Wormington's Personal Website">
 	<meta name="author"      content="Cade Wormington">
 	
 	<title>Cade Wormington's Personal Site</title>
@@ -24,11 +24,13 @@
 <body>
 
 <header id="header">
-	<div id="head" class="parallax" parallax-speed="1">
-		<h1 id="logo" class="text-center">
+	<div id="head" class="parallax row" parallax-speed="1">
+		<h1 id="logo" class="topspace text-center col-md-4 col-md-offset-4 col-sm-12">
+			<br>
 			<span class="title">Cade Wormington</span>
 			<span class="tagline">Software Developer, Recent Graduate<br>
 				<a href="mailto:cadeworm@gmail.com">cadeworm@gmail.com</a></span>
+				<br>
 		</h1>
 	</div>
 
@@ -79,28 +81,38 @@
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
 				<h3 id="about-this-site">/this site</h3>
-				<p>This website is a personal site I created because I wanted to learn more about Node.js and AWS. Although it was mainly a learning experience, I still wanted to make it look modern and presentable, so I learned the basics of CSS and used a starting template that I found after some searching. I want to maintain and update this website as I go - adding new features as I learn new things. It is currently hosted on a AWS EC2 instance.</p>
-				<p>The 'Home' and 'Projects' tabs of this website feature a JavaScript applet called <a href="https://github.com/wormington/GitGet" target="_blank">GitGet</a> that I created which lists my GitHub projects and some information about them. The app queries the GitHub API to get the list of projects from my GitHub account. It then receives information about the projects in JSON and sorts them by Most Recent Commit. This information is then displayed on the website. I want to add functionality to allow a user to sort the projects differently and also add some functionality to display the language makeup of the project.</p>
-				<p><img src="assets/images/mac.jpg" alt="" class="" width="100%" ></p>
+				<p>This website is a personal site I created because I wanted to learn more about Node.js and AWS. Although it was mainly a learning experience, I still wanted to make it look modern and presentable, so I learned the basics of CSS and used a starting template that I found after some searching. I want to maintain and update this website as I go - adding new features as I learn new things. Currently, the frontend of the website is comprised of HTML, JavaScript, CSS, and LESS. Bootstrap 3 and Font Awesome 4 are used to help style the website, and jQuery is used to communicate with the backend. The backend is entirely run on JavaScript in Node.js using the built-in HTTP module and the <a href="https://www.npmjs.com/package/node-static" target="_blank">node-static</a> module from Node package manager (npm). It is currently hosted on an AWS EC2 instance.</p>
+				<div class="row">
+					<p class="text-center">
+						<img src="assets/images/icons/HTML5_icon.png" alt="HTML 5 logo." class="col-md-4 col-sm-4" width="30%">
+						<img src="assets/images/icons/transparent-CSS3_icon.png" alt="CSS logo." class="col-md-4 col-sm-4" width="30%">
+						<img src="assets/images/icons/transparent-js_icon.png" alt="JavaScript logo." class="col-md-4 col-sm-4" width="30%">
+					</p>
+					<p class="text-center">
+						<img src="assets/images/icons/transparent-less_icon.png" class="col-md-3 col-md-offset-3 col-sm-3 col-sm-offset-3" width="40%">
+						<img src="assets/images/icons/transparent_node_logo.png" class="col-md-3 col-sm-3" width="40%">
+					</p>
+				</div>
+				<p>The 'Home' and 'Projects' tabs of this website feature my Node.js app called <a href="https://github.com/wormington/GitGet" target="_blank">GitGet</a> which generates a JSON list of my GitHub projects and some information about them. The format of these JSON objects can be seen below. The app queries the GitHub API using the <a href="https://www.npmjs.com/package/@octokit/rest" target="_blank">@octokit/rest</a> module from npm and gets the list of repositories from my GitHub account. Next, it receives information about the projects in JSON and sorts them by Most Recent Commit. A script on the website uses jQuery to get and display the JSON on the website. I want to add functionality to allow a user to sort the projects differently and also add some functionality to display the language makeup of the project.</p>
+				<p><img src="assets/images/repoFormat.png" alt="The object format for the JSON file containing information about an account's repositories. Properties include name, updated, owner, description, and url." width="100%"></p>
 				<h3 id="about-me">/me</h3>
-				<p>My name is Cade Wormington, and I am a software developer. In December, I graduated from the University of Wisconsin-Madison with a Bachelor's of Science in Computer Science. Since then, I have been expanding my skillset and learning languages and platforms which I previously had little experience with. </p>
-				<p>I started programming in high school after joining BEAST Robotics, my high school's robotics team. This team fostered my interest in computer science, and it also taught me the basics of programming. While on the team, I was able to learn some of the fundamentals of team programming - primarily Agile project management and version control. As I continued with the team, I realized I enjoyed software development enough to pursue it in college. I was accepted into the University of Wisconsin-Madison, and I declared my major to be Computer Science shortly after.</p>
-				<p><br/></p>
-				<p>If you would like to know more about my background, my resume can be downloaded here.</p>
-				<h4><a href="" target="_blank">Resume.pdf</a></h4>
+				<p>My name is Cade Wormington, and I am a software developer. Most of my experience is in backend and systems, but I am currently developing my frontend skills. In December, I graduated from the University of Wisconsin-Madison with a Bachelor's of Science in Computer Science. Since then, I have been expanding my skillset and learning languages and platforms which I previously had little experience with. In addition to this, I have started some new, more complex projects and have diverged from the simple school projects which I worked on in the past. School projects are perfect for learning and exploring specific concepts, but they often lack the complexity and usefulness that real-world applications demand. The general goal of my future projects will be to apply common ideas and other systems that are often used in the industry.</p>
+				<p><img src="assets/images/beastrobotics.jpg" alt="Full team picture of 2202 Beast Robotics from 2016. I was 16 years old here." width="100%"><br/></p>
+				<p>I started my programming journey in high school after joining <a href="https://www.beastrobotics.com/" target="_blank">BEAST Robotics</a>, my high school's robotics team. This team fostered my interest in computer science, and it also taught me the basics of programming. While on the team, I was able to learn some of the fundamentals of team programming as well - primarily an Agile-like communication system and version control. As I continued with the team, I realized I enjoyed software engineering enough to pursue it in college. I was accepted into the University of Wisconsin-Madison, and I declared my major to be Computer Science shortly after. A list of some of the relevant classes which I passed while at UW can be found on the <a href="/index.html">Home</a> page or on my resume below.</p>
+				<br>
+				<p>If you would like to know more about my background, my resume can be downloaded below.</p>
+				<h4><a href="https://drive.google.com/file/d/1YbkHlch84SOzZEBGpuwza3aa44uqkmcI/view" target="_blank">Resume.pdf</a></h4>
+				<p><em>Note: This link will redirect you to Google Drive.</em></p>
 			</article>
 			<!-- /Article -->
-			
-
 		</div>
 	</div>	<!-- /container -->
-	
 </main>
 
-<footer id="footer" class="topspace">
+<footer id="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 widget">
+			<div class="col-sm-6 col-md-4 widget">
 				<h3 class="widget-title">Contact</h3>
 				<div class="widget-body">
 					<p>+1 (262) 391-3387<br>
@@ -111,17 +123,19 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 widget">
+			<div class="col-sm-6 col-md-4 widget">
 				<h3 class="widget-title">Media</h3>
-				<div class="widget-body">
-					<p class="follow-me-icons">
-						<a href="https://www.linkedin.com/in/cade-wormington-31647b212/" target="_blank"><i class="fa fa-linkedin fa-2"></i></a>
-						<a href="https://github.com/wormington" target="_blank"><i class="fa fa-github fa-2"></i></a>
-					</p>
+				<div class="widget-body follow-me-icons">
+					<div>
+						<a href="https://www.linkedin.com/in/cade-wormington-31647b212/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+						<a href="https://github.com/wormington" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+						<br/>
+						<br/>
+					</div>
 				</div>
 			</div>
 
-			<div class="col-md-4 widget">
+			<div class="col-sm-12 col-md-4 widget">
 				<h3 class="widget-title">Quick Info</h3>
 				<div class="widget-body">
 					<p>The "Initio" website template was made by Sergey Pozhilov under CC BY 3.0. I, Cade Wormington, have modified it for personal purposes.</p>
@@ -138,16 +152,16 @@
 			
 			<div class="col-md-6 widget">
 				<div class="widget-body">
-					<p>Madison, WI 53726</p>
+					<p class="text-left">Madison, WI 53726</p>
 				</div>
 			</div>
 
 			<div class="col-md-6 widget">
 				<div class="widget-body">
-					<p class="text-right">
-						Copyright &copy; 2022, Cade Wormington<br>
+					<p class="text-right">Copyright &copy; 2022, Cade Wormington</p> 
 				</div>
 			</div>
+
 		</div> <!-- /row of widgets -->
 	</div>
 </footer>
@@ -158,5 +172,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="assets/js/template.js"></script>
+<script src="assets/js/background.js"></script>
 </body>
 </html>

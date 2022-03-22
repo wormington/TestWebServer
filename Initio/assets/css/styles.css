@@ -1,3 +1,6 @@
+* {
+  max-width: 100%;
+}
 html {
   font-size: 100%;
 }
@@ -26,7 +29,8 @@ body {
   -moz-background-clip: padding;
   border-radius: 0;
   background-clip: padding-box;
-  width: 100%;
+  max-width: 100%;
+  padding: 0px;
 }
 .navbar.stick {
   position: fixed;
@@ -231,10 +235,16 @@ a:hover {
 
 **********************************************************************/
 #head {
-  background: #f4f4f4 url(../images/bg_head.jpg) top center;
   background-size: cover;
   color: #7C7C7C;
   padding: 30px 0 35px 0;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 #head img.img-circle {
   display: block;
@@ -251,22 +261,22 @@ a:hover {
 }
 #head .title a {
   text-decoration: none;
-  color: #333333;
+  color: #000000;
 }
 #head .tagline {
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.2em;
-  color: #7C7C7C;
+  color: #222222;
   margin: 5px 0 0;
 }
 #head .tagline b {
   font-weight: normal;
 }
-#head .tagline a {
+/* #head .tagline a {
   color: #5E5E5E;
-}
+} */
 .home #head {
   padding: 90px 0;
 }
@@ -278,6 +288,15 @@ a:hover {
   font-size: 16px;
   font-size: 1rem;
   margin: 15px 0 0;
+}
+
+#logo {
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #000000;
+  /* margin: 0px 30px; */
 }
 /*********************************************************************
 
@@ -518,6 +537,7 @@ img {
   min-height: 150px;
   padding: 0px 10px;
   margin: 10px 0px;
+  width: 100%;
 }
 
 .projects-preview-list {
@@ -531,7 +551,7 @@ img {
   border-radius: 10px;
   min-height: 160px;
   padding: 0px 10px;
-  margin: 5px 0px 5px 0px;
+  margin: 5px;
 }
 
 .projects-list a, .projects-preview-list a {
@@ -702,6 +722,10 @@ footer.entry-meta .meta-in {
   margin-top: 0;
   margin-bottom: 30px;
 }
+#header {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 /*********************************************************************
 
 
@@ -810,6 +834,8 @@ footer.entry-meta .meta-in {
   padding: 30px 0 0 0;
   font-size: 12px;
   color: #999;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 #footer a {
   color: #ccc;
@@ -829,6 +855,8 @@ footer.entry-meta .meta-in {
   padding: 15px 0;
   color: #777;
   font-size: 12px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 #underfooter a {
   color: #aaa;

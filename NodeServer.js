@@ -1,9 +1,18 @@
+/**
+ *  NodeServer.js
+ *  Author: Cade Wormington
+ * 
+ * This file runs a Node.js HTTP server and its backend. 
+ * 
+ * This program uses the built-in Node.js HTTP module. It also uses the external 
+ * node-static module from npm. Node-static is a module which adds an easy-to-use 
+ * static file server.
+ * 
+ */
 
-// This program uses the built-in Node.js HTTP module. It also uses the external 
-// node-static module from npm. Node-static is a module which adds an easy-to-use 
-// static file server.
 const http = require("http");
 const static = require("node-static");
+const fs = require('fs').promises;
 
 // Requires GitGet to be in the parent directory of the program.
 // https://github.com/wormington/GitGet
@@ -22,9 +31,12 @@ const exemptUrls = [
                     ];
 
 // data stores data from the Github API request. reqTimer stores the system time
-// to limit the amount of request the program can make.
+// to limit the amount of request the program can make. bgCount stores the amount
+// of images in our background image pool. It will be set at the first HTTP
+// request.
 let data;
 let reqTimer;
+const bgCount = 24;
 
 /*
     handleHttp(req, res) is the function which the HTTP server calls to handle
@@ -70,9 +82,22 @@ const handleHttp = async (req, res) => {
                 res.end(data);
             }
 
+        } else if (req.url.substring(0, req.url.indexOf('?')) === "/assets/images/bg.png") {
+            // TODO: automatically get number of images in bg pool
+            if (!bgCount) {
+                // count amount of pictures in folder and store in bgCount
+                // this will save time during future requests due to less I/O
+            }
+            let selectedBg = Math.floor(Math.random() * bgCount);
+            res.writeHead(200, {'content-type':'image/png', 'cache-control':'no-store'});
+            fs.readFile('./bgs/' + selectedBg.toString() + '.png').then((content) => {
+                res.end(content);
+            }).catch(() => {
+                res.end('./bgs/0.png');
+            });
+
         } else if (exemptUrls.includes(req.url)) {
             // Restricts access to files that web users do not need to see.
-
             console.log("Info: illegal attempted access, " + req.url);
             statServ.serveFile('/404.html', 404, '', req, res);
 
