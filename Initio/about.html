@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="viewport"    content="width=device-width, initial-scale=1">
 	<meta name="description" content="Cade Wormington's Personal Website">
 	<meta name="author"      content="Cade Wormington">
 	
@@ -24,17 +24,19 @@
 <body>
 
 <header id="header">
-	<div id="head" class="parallax row" parallax-speed="2">
-		<h1 id="logo" class="topspace text-center col-md-4 col-md-offset-4 col-sm-12">
-			<br>
-			<span class="title">Cade Wormington</span>
-			<span class="tagline">Software Developer, Recent Graduate<br>
+	<div id="head" class="parallax" parallax-speed="2">
+		<div class="col-md-12 col-sm-12">
+			<h1 id="logo" class="topspace text-center col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+				<br>
+				<span class="title">Cade Wormington</span>
+				<span class="tagline">Software Developer, Recent Graduate<br>
 				<a href="mailto:cadeworm@gmail.com">cadeworm@gmail.com</a></span>
 				<br>
-		</h1>
+			</h1>
+		</div>
 	</div>
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-sticky">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -46,16 +48,6 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="projects.html">Projects</a></li>
 					<li class="active"><a href="about.html">About</a></li>
-					<!--
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">Left Sidebar</a></li>
-							<li><a href="sidebar-right.html">Right Sidebar</a></li>
-							<li><a href="single.html">Blog Post</a></li>
-						</ul>
-					</li>
-					-->
 				</ul>
 			
 			</div><!--/.nav-collapse -->			
@@ -80,7 +72,8 @@
 
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
-				<h3 id="about-this-site">/this site</h3>
+				<a class="anchor2" id="about-this-site"></a>
+				<h3>/this site</h3>
 				<p>This website is a personal site I created because I wanted to learn more about Node.js and AWS. Although it was mainly a learning experience, I still wanted to make it look modern and presentable, so I learned the basics of CSS and used a starting template that I found after some searching. I want to maintain and update this website as I go - adding new features as I learn new things. Currently, the frontend of the website is comprised of HTML, JavaScript, CSS, and LESS. Bootstrap 3 and Font Awesome 4 are used to help style the website, and jQuery is used to communicate with the backend. The backend is entirely run on JavaScript in Node.js using the built-in HTTP module and the <a href="https://www.npmjs.com/package/node-static" target="_blank">node-static</a> module from Node package manager (npm). It is currently hosted on an AWS EC2 instance.</p>
 				<div class="row">
 					<p class="text-center">
@@ -95,7 +88,8 @@
 				</div>
 				<p>The 'Home' and 'Projects' tabs of this website feature my Node.js app called <a href="https://github.com/wormington/GitGet" target="_blank">GitGet</a> which generates a JSON list of my GitHub projects and some information about them. The format of these JSON objects can be seen below. The app queries the GitHub API using the <a href="https://www.npmjs.com/package/@octokit/rest" target="_blank">@octokit/rest</a> module from npm and gets the list of repositories from my GitHub account. Next, it receives information about the projects in JSON and sorts them by Most Recent Commit. A script on the website uses jQuery to get and display the JSON on the website. I want to add functionality to allow a user to sort the projects differently and also add some functionality to display the language makeup of the project.</p>
 				<p><img src="assets/images/repoFormat.png" alt="The object format for the JSON file containing information about an account's repositories. Properties include name, updated, owner, description, and url." width="100%"></p>
-				<h3 id="about-me">/me</h3>
+				<a class="anchor" id="about-me"></a>
+				<h3>/me</h3>
 				<p>My name is Cade Wormington, and I am a software developer. Most of my experience is in backend and systems, but I am currently developing my frontend skills. In December, I graduated from the University of Wisconsin-Madison with a Bachelor's of Science in Computer Science. Since then, I have been expanding my skillset and learning languages and platforms which I previously had little experience with. In addition to this, I have started some new, more complex projects and have diverged from the simple school projects which I worked on in the past. School projects are perfect for learning and exploring specific concepts, but they often lack the complexity and usefulness that real-world applications demand. The general goal of my future projects will be to apply common ideas and other systems that are often used in the industry.</p>
 				<p><img src="assets/images/beastrobotics.jpg" alt="Full team picture of 2202 Beast Robotics from 2016. I was 16 years old here." width="100%"><br/></p>
 				<p>I started my programming journey in high school after joining <a href="https://www.beastrobotics.com/" target="_blank">BEAST Robotics</a>, my high school's robotics team. This team fostered my interest in computer science, and it also taught me the basics of programming. While on the team, I was able to learn some of the fundamentals of team programming as well - primarily an Agile-like communication system and version control. As I continued with the team, I realized I enjoyed software engineering enough to pursue it in college. I was accepted into the University of Wisconsin-Madison, and I declared my major to be Computer Science shortly after. A list of some of the relevant classes which I completed while at UW can be found on the <a href="/index.html">Home</a> page or on my resume below.</p>

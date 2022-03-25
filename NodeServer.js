@@ -27,8 +27,14 @@ const statServ = new static.Server("./Initio");
 
 // This list contains existing filepaths which we want to restrict access to.
 const exemptUrls = [
-                    '/404.html'
-                    ];
+    '/404.html'
+];
+
+// This list contains portions of URLs that users should not be able to access.
+const forbiddenPaths = [
+    '/..',
+    '/%00'
+];
 
 // data stores data from the Github API request. reqTimer stores the system time
 // to limit the amount of request the program can make. bgCount stores the amount
@@ -53,6 +59,18 @@ const handleHttp = async (req, res) => {
 
     // Respond when request finishes.
     req.addListener("end", function () {
+
+        // Check for bad paths within the request URL.
+        let badPath = false;
+        forbiddenPaths.forEach((currentElement) => {
+            if (req.url.includes(currentElement)) {
+                badPath = true;
+            }
+        });
+
+        if (exemptUrls.includes(req.url)) {
+            badPath = true;
+        }
 
         // Requests for 'repos.json' are handled by us.
         if (req.url === "/repos.json") {
@@ -96,7 +114,7 @@ const handleHttp = async (req, res) => {
                 res.end('./bgs/0.png');
             });
 
-        } else if (exemptUrls.includes(req.url)) {
+        } else if (badPath) {
             // Restricts access to files that web users do not need to see.
             console.log("Info: illegal attempted access, " + req.url);
             statServ.serveFile('/404.html', 404, '', req, res);

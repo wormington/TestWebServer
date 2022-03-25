@@ -1,6 +1,6 @@
-* {
+/* * {
   max-width: 100%;
-}
+} */
 html {
   font-size: 100%;
 }
@@ -29,7 +29,7 @@ body {
   -moz-background-clip: padding;
   border-radius: 0;
   background-clip: padding-box;
-  max-width: 100%;
+  width: 100%;
   padding: 0px;
 }
 .navbar.stick {
@@ -296,7 +296,7 @@ a:hover {
   border-width: 3px;
   border-style: solid;
   border-color: #000000;
-  /* margin: 0px 30px; */
+  /* margin: 0px 7px 20px 7px; */
 }
 /*********************************************************************
 
@@ -333,6 +333,7 @@ img {
   border: 0 none;
   padding: 12px 35px;
   text-shadow: 0 1px 0px #780d33;
+  margin: 30px 0px 0px 0px;
 }
 .btn-primary {
   color: #fff;
@@ -536,8 +537,8 @@ img {
   border-radius: 10px;
   min-height: 150px;
   padding: 0px 10px;
-  margin: 10px 0px;
-  width: 100%;
+  margin: 10px 7px;
+  max-width: 100%;
 }
 
 .projects-preview-list {
@@ -565,6 +566,20 @@ img {
 
 h2 a {
   color: #232323
+}
+
+a.anchor {
+  display: block;
+  visibility: hidden;
+  position: relative;
+  top: -200px;
+}
+
+a.anchor2 {
+  display: block;
+  visibility: hidden;
+  position: relative;
+  top: -145px;
 }
 /*********************************************************************
 
