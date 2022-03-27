@@ -11,6 +11,7 @@
  */
 
 const https = require("https");
+const http = require("http");
 const static = require("node-static");
 const fs = require('fs');
 
@@ -20,12 +21,12 @@ const GitGet = require("../GitGet/GitGet.js");
 
 // Define default host address and port.
 const host = "localhost";
-const port = 8000;
+const port = 443;
 
 // Define TLS certificate and key for https.
 const opts = {
-    key: fs.readFileSync('key here'),
-    cert: fs.readFileSync('cert here'),
+    key: fs.readFileSync('../testCerts/myCA.key'),
+    cert: fs.readFileSync('../testCerts/myCA.pem')
 };
 
 // Create a static file server to serve files in the Initio directory.
@@ -133,11 +134,20 @@ const handleHttp = async (req, res) => {
 
 };
 
+const redirHttps = async (req, res) => {
+    res.writeHead(301, { "Location":"https://" + req.headers['host'] + req.url });
+    res.end();
+};
 
 /**
- *  Code to run server.
+ *  Code to run https server.
  */
 const server = https.createServer(opts, handleHttp);
 server.listen(port, "", () => {
     console.log(`Server running on ${host}:${port}`);
+});
+
+const redirServer = http.createServer(redirHttps);
+redirServer.listen(80, "", () => {
+    console.log('Redirecting http to https.');
 });
