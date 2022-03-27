@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets
+Disallow: /404.html
+Disallow: /coffee_cup.png
+Crawl-delay: 10

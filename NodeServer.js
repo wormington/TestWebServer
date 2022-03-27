@@ -10,9 +10,9 @@
  * 
  */
 
-const http = require("http");
+const https = require("https");
 const static = require("node-static");
-const fs = require('fs').promises;
+const fs = require('fs');
 
 // Requires GitGet to be in the parent directory of the program.
 // https://github.com/wormington/GitGet
@@ -21,6 +21,12 @@ const GitGet = require("../GitGet/GitGet.js");
 // Define default host address and port.
 const host = "localhost";
 const port = 8000;
+
+// Define TLS certificate and key for https.
+const opts = {
+    key: fs.readFileSync('key here'),
+    cert: fs.readFileSync('cert here'),
+};
 
 // Create a static file server to serve files in the Initio directory.
 const statServ = new static.Server("./Initio");
@@ -102,17 +108,9 @@ const handleHttp = async (req, res) => {
 
         } else if (req.url.substring(0, req.url.indexOf('?')) === "/assets/images/bg.png") {
             // TODO: automatically get number of images in bg pool
-            if (!bgCount) {
-                // count amount of pictures in folder and store in bgCount
-                // this will save time during future requests due to less I/O
-            }
             let selectedBg = Math.floor(Math.random() * bgCount);
             res.writeHead(200, {'content-type':'image/png', 'cache-control':'no-store'});
-            fs.readFile('./bgs/' + selectedBg.toString() + '.png').then((content) => {
-                res.end(content);
-            }).catch(() => {
-                res.end('./bgs/0.png');
-            });
+            res.end(fs.readFileSync('./bgs/' + selectedBg.toString() + '.png'));
 
         } else if (badPath) {
             // Restricts access to files that web users do not need to see.
@@ -139,7 +137,7 @@ const handleHttp = async (req, res) => {
 /**
  *  Code to run server.
  */
-const server = http.createServer(handleHttp);
+const server = https.createServer(opts, handleHttp);
 server.listen(port, "", () => {
     console.log(`Server running on ${host}:${port}`);
 });
