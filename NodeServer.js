@@ -40,7 +40,7 @@ const exemptUrls = [
 // This list contains portions of URLs that users should not be able to access.
 const forbiddenPaths = [
     '/..',
-    '/%00'
+    '%00'
 ];
 
 // data stores data from the Github API request. reqTimer stores the system time
