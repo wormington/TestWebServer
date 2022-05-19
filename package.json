@@ -1,0 +1,23 @@
+{
+  "name": "testwebserver",
+  "version": "1.1.0",
+  "description": "A personal webserver.",
+  "main": "NodeServer.js",
+  "scripts": {
+    "test": "node NodeServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wormington/TestWebServer.git"
+  },
+  "keywords": [
+    "website",
+    "webserver"
+  ],
+  "author": "Cade Wormington",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wormington/TestWebServer/issues"
+  },
+  "homepage": "https://github.com/wormington/TestWebServer#readme"
+}
